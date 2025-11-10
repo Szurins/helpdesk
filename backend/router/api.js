@@ -1,16 +1,24 @@
 const express = require("express")
 const router = express.Router()
-const authenticateToken = require("../middleware/authenticate")
 const Users = require("../models/Users")
+const bcrypt = require("bcrypt")
 
-// router.get("/tickets", authenticateToken, (req, res) => {
-//     res.json(tickets.filter(post => post.username === req.user.name))
-// })
+router.get('/user', async (req, res) =>{
+    try{
+        const users = await Users.find()
+        res.status(200).send(users)
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+})
 
 router.post('/user', async (req, res) => {
+    const hashSalt = 10
+    const hashedPassword = await bcrypt.hash(req.body.password, hashSalt)
     const user = new Users({
         username: req.body.username,
-        password: req.body.password,
+        password: hashedPassword,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
         department: req.body.department,

@@ -1,25 +1,14 @@
-POST http://localhost:3000/token/login
+POST http://localhost:8000/auth/login
 Content-Type: application/json
 
 {
-    "username": "James"
-}
-
-###
-GET http://localhost:3000/api/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFtZXMiLCJpYXQiOjE3NjI0NTU3ODR9.th47Ecrd8O6nMw-84RTYFQBtf6LO6p7C1VdP7kYfgPI
-
-###
-POST http://localhost:3000/token
-Content-Type: application/json
-
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFtZXMiLCJpYXQiOjE3NjI0NTczODN9.xKp9dA_LEUzHy2Sekc_gp89k_r4kMiuQiQskdsoKCEU"
+    "username": "James",
+    "password": "123"
 }
 
 ###
 
-POST http://localhost:3000/api/user
+POST http://localhost:8000/api/user
 Content-Type: application/json
 
 {
@@ -30,3 +19,6 @@ Content-Type: application/json
     "department": "Teacher",
     "isAdmin": "true"
 }
+
+###
+GET http://localhost:8000/api/user
