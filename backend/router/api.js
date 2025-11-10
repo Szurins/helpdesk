@@ -2,6 +2,9 @@ const express = require("express")
 const router = express.Router()
 const Users = require("../models/Users")
 const bcrypt = require("bcrypt")
+const authenticate = require("../middleware/authenticate")
+
+router.use(authenticate)
 
 router.get('/user', async (req, res) =>{
     try{

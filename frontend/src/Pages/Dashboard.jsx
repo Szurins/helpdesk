@@ -1,6 +1,10 @@
+import Header from "../Components/Header"
+
 const Dashboard = () => {
     return(
-        <h1>This is protected route</h1>
+        <div className="flex flex-col justify-between h-full">
+            <Header/>
+        </div>
     )
 }
 

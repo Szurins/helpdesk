@@ -1,17 +1,15 @@
 import axios from "axios";
 import { useEffect } from "react";
-
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 const Home = () => {
-    useEffect(() => {
-        const getData = async () => {
-            const response = await axios.get("http://localhost:8000/api/user")
-            console.log((await response).data)
-        }
-        getData()
-    }, [])
-    return(
-        <h1>Home page</h1>
-    )
-}
+  return (
+    <div className="flex flex-col justify-between h-screen">
+      <Header />
+      <h1>This is home page</h1>
+      <Footer />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
