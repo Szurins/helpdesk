@@ -12,12 +12,12 @@ POST http://localhost:8000/api/user
 Content-Type: application/json
 
 {
-    "username": "Jessica",
+    "username": "John",
     "password": "123",
-    "email": "jessica@example.com",
+    "email": "john@example.com",
     "phoneNumber": "123 123 123",
-    "department": "Teacher",
-    "isAdmin": "false"
+    "department": "Admins",
+    "isAdmin": "true"
 }
 
 ###

@@ -4,14 +4,14 @@ const Users = require("../models/Users")
 const bcrypt = require("bcrypt")
 const authenticate = require("../middleware/authenticate")
 
-router.use(authenticate)
+// router.use(authenticate)
 
-router.get('/user', async (req, res) =>{
-    try{
+router.get('/user', async (req, res) => {
+    try {
         const users = await Users.find()
         res.status(200).send(users)
     }
-    catch(err){
+    catch (err) {
         res.status(500).send(err)
     }
 })

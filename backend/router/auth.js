@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
-  res.json({ success: true, isUserAdmin: authUser.isAdmin });
+  res.json({ success: true, isAdmin: authUser.isAdmin });
 });
 
 router.get("/verify", (req, res) => {

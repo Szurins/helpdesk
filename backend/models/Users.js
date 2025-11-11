@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const UsersSchema = new mongoose.Schema({
     username: {
         required: true,
+        unique: true,
         type: String
     },
     password: {
@@ -23,7 +24,12 @@ const UsersSchema = new mongoose.Schema({
     },
     isAdmin: {
         required: true,
-        type: Boolean
+        type: Boolean,
+        default: false
+    },
+    firstLogOn: {
+        type: Date,
+        default: null
     }
 })
 

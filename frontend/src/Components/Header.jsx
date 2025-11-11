@@ -1,5 +1,6 @@
-const Header = ({isHomePage=false}) => {
+const Header = () => {
   const username = localStorage.getItem("username");
+  const isAdmin = localStorage.getItem("isAdmin");
   return (
     <div className="bg-linear-to-r from-gray-900 to-gray-950 flex flex-row justify-between px-8 py-2">
       <div>
@@ -9,7 +10,7 @@ const Header = ({isHomePage=false}) => {
         </a>
       </div>
       <div className="flex flex-row items-center gap-10 text-gray-200 text-2xl">
-        {isHomePage ? (
+        {!username ? (
           <>
             <a href="#" className="hover:text-gray-300 duration-100">
               Pricing
@@ -23,13 +24,15 @@ const Header = ({isHomePage=false}) => {
           </>
         ) : (
           <>
-            <a href="" className="hover:text-gray-300 duration-100">
-              Pricing
-            </a>
+            {isAdmin === "true" && (
+              <a href="/addUser" className="hover:text-gray-300 duration-100">
+                Add user
+              </a>
+            )}
             <a href="/dashboard" className="hover:text-gray-300 duration-100">
               Dasboard
             </a>
-            <a href="/#" className="hover:text-gray-300 duration-100">{username}</a>
+            <a href="#" className="hover:text-gray-300 duration-100">{username}</a>
           </>
         )}
       </div>
